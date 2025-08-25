@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wibupedia</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+* {
+    font-family: 'Readex Pro', sans-serif;
+}
+</style>
+
+<section class="pb-32 md:pb-44 bg-[url('./bg-gradient.png')] bg-cover bg-center bg-no-repeat text-slate-800 text-sm">
+    <nav class="flex items-center justify-between p-4 md:px-16 lg:px-24 xl:px-32 border-b border-white/25 w-full">
+        <a href="#">
+            <img src="./icon.png" alt="PrebuiltUI" class="h-15 w-auto ">
+        </a>
+        <ul id="menu" class="max-md:absolute max-md:h-full max-md:z-50 max-md:w-full max-md:top-0 max-md:-left-full transition-all duration-300 max-md:backdrop-blur max-md:bg-white/70 max-md:text-base flex flex-col md:flex-row items-center justify-center gap-8 font-medium">
+            <li onclick="closeNavbar()" class="hover:text-slate-500"><a href="#">Trang Chủ</a></li>
+            <li onclick="closeNavbar()" class="hover:text-slate-500"><a href="#">Trang Web</a></li>
+            <li onclick="closeNavbar()" class="hover:text-slate-500"><a href="#">Phần Mềm</a></li>
+            <li onclick="closeNavbar()" class="hover:text-slate-500"><a href="#">Linh Tinh</a></li>
+            <li onclick="closeNavbar()" class="hover:text-slate-500"><a href="#">Hướng Dẫn</a></li>
+
+            <button id="close-menu"
+                class="md:hidden bg-gray-800 hover:bg-black text-white p-2 rounded-md aspect-square font-medium transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+        </ul>
+
+
+        <button id="open-menu" class="md:hidden">
+            <svg class="size-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <button class="bg-indigo-600 hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-cyan-500/50 shadow-sky-500/50 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-500 hover:scale-105 active:scale-95 active:shadow-indigo-100/50 transition duration-300">
+            Khám Phá Ngay
+        </button>
+    </nav>
+    <div class="flex flex-col-reverse gap-10 md:flex-row px-4 md:px-16 lg:px-24 xl:px-32 mt-12 md:mt-32"> 
+        <div class="max-md:text-center">
+            <h5 class="text-4xl md:text-6xl/[76px] font-black max-w-xl bg-gradient-to-r from-slate-900 to-cyan-500 text-transparent bg-clip-text">
+                Nơi tổng hợp những thứ mà một wibu nên biết
+            </h5>
+
+            <p class="text-sm md:text-base max-w-lg mt-6 max-md:px-2 text-slate-600">
+                Đây là một trang web tổng hợp những thứ liên quan đến văn hoá otkaku,... và những thứ tương tự mình tìm được trên internet. Mình tạo ra nó nhằm giúp mọi người có thể dễ dàng tìm hiểu hơn. Cũng vì mình ngẫu hứng tạo ra trang web này nên có thể có nhiều sai sót, mong mọi người bỏ qua.
+            </p>
+            <div class="flex items-center gap-2 mt-6 flex-row">
+                <button class="px-8 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white active:scale-95 transition-all" type="button">
+                    Bắt đầu khám phá
+                </button>
+                <button class="px-5 py-3 rounded-md bg-white text-indigo-600 border border-indigo-400 flex items-center gap-2 hover:bg-indigo-600/5 active:scale-95 transition-all" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24" fill="none" class="fill-indigo-600">
+                        <g clip-path="url(#clip0_429_11217)">
+                        <path d="M4 18C4 15.7908 5.79086 14 8 14H16C18.2091 14 20 15.7908 20 18V18C20 19.1045 19.1046 20 18 20H6C4.89543 20 4 19.1045 4 18V18Z" stroke="#292929" stroke-width="2.5" stroke-linejoin="round"/>
+                        <circle cx="12" cy="6.99997" r="3" stroke="#292929" stroke-width="2.5"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_429_11217">
+                        <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                    
+                    <span>Người tạo ra trang web</span>
+                </button>
+            </div>
+        </div>
+        <div class="w-full md:max-w-xs lg:max-w-full">
+            <img class="w-full h-auto" src="./rem.png" alt="">
+        </div>
+    </div>
+</section>
+
+<script>
+    const menu = document.getElementById('menu');
+    const closeMenu = document.getElementById('close-menu');
+    const openMenu = document.getElementById('open-menu');
+
+    openMenu.addEventListener('click', () => {
+        menu.classList.remove('max-md:-left-full');
+        menu.classList.add('max-md:left-0');
+    });
+
+    function closeNavbar() {
+        menu.classList.remove('max-md:left-0');
+        menu.classList.add('max-md:-left-full');
+    }
+
+    closeMenu.addEventListener('click', () => {
+        closeNavbar();   
+    });
+</script>   
+</body>
+</html>
